@@ -20,7 +20,7 @@ Searching for deals can be time-consuming which is why we created SmartShopperPr
 Our developments in SmartShopperProductCheck were achieved using the following technologies: Python3, Django, HTML, and CSS. Any developers who wish to improve SmartShopperProductCheck should have these technologies installed before proceeding.
 
 ### What SmartShopperProductCheck is doing under the hood
-![SmartShopperProductCheckInternals](https://i.imgur.com/SYvKoeA.jpg)
+![SSPC ITERATION1](https://user-images.githubusercontent.com/60410421/135404162-8340b68e-0038-4e5b-939d-26c7336b41e2.jpg)
 
 A User looking for a product makes a search via a search bar on the user interface. SmartShopperProductCheck extracts certain keywords from the search. Using an existing .csv file with links to bigbox retailers like Target and Walmart, the program establishes a connection to these retailer links. The program then webscrapes from the links to find the product's general information (name, description, and price) matching that of the keywords extracted from the user search. Products are then outputted to the user interface for the user to view which retailers provide the cheapest price.
 
