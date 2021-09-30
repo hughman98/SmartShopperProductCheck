@@ -2,7 +2,9 @@
 [![Build Status](https://app.travis-ci.com/chandur626/SmartShopperProductCheck.svg?branch=main)](https://app.travis-ci.com/github/chandur626/SmartShopperProductCheck)
 [![Build Status - GitHub](https://github.com/chandur626/SmartShopperProductCheck/actions/workflows/django.yml/badge.svg)](https://github.com/chandur626/SmartShopperProductCheck/actions/workflows/django.yml)
 ![Github](https://img.shields.io/badge/language-python-blue.svg)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5542544.svg)](https://doi.org/10.5281/zenodo.5542544)
 [![Coverage Status](https://coveralls.io/repos/github/chandur626/SmartShopperProductCheck/badge.svg?branch=main)](https://coveralls.io/github/chandur626/SmartShopperProductCheck?branch=main)
+
 
 # SmartShopperProductCheck
 
