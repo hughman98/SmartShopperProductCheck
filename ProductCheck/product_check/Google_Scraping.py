@@ -1,4 +1,4 @@
-""" 
+"""
 Scraping multiple ecommerce sites to obtain poduct links using serpAPI
 
 """

@@ -20,11 +20,13 @@ class ProductTestCase(TestCase):
         self.assertEqual(walmart_product.product_category, "walmart")
 
     def test_product_details_post(self):
+        """Test for ProductDetailsAPIView post method """
         test_file = open('product_check/test_data/test_data.csv', 'r')
         response = self.client.post('/product_check/details/', {'file': test_file})
         self.assertEqual(response.status_code, 200)
 
     def test_amazon_scrapper(self):
+        """Test for Amazon Scrapper class """
         test_file = csv.DictReader(open('product_check/test_data/amazon_test_data.csv', 'r'))
         for row in test_file:
             scrapper = scraping_class[row['product_category']](row['product_url'])
@@ -32,6 +34,7 @@ class ProductTestCase(TestCase):
             self.assertEqual(data.get('product_url'), row['product_url'])
 
     def test_walmart_scrapper(self):
+        """Test for Walmart Scrapper class """
         test_file = csv.DictReader(open('product_check/test_data/walmart_test_data.csv', 'r'))
         for row in test_file:
             scrapper = scraping_class[row['product_category']](row['product_url'])
@@ -39,6 +42,7 @@ class ProductTestCase(TestCase):
             self.assertEqual(data.get('product_url'), row['product_url'])
 
     def test_target_scrapper(self):
+        """Test for Target Scrapper class """
         test_file = csv.DictReader(open('product_check/test_data/target_test_data.csv', 'r'))
         for row in test_file:
             scrapper = scraping_class[row['product_category']](row['product_url'])
@@ -46,6 +50,7 @@ class ProductTestCase(TestCase):
             self.assertEqual(data.get('product_url'), row['product_url'])
 
     def test_costco_scrapper(self):
+        """Test for Costco Scrapper class """
         test_file = csv.DictReader(open('product_check/test_data/costco_test_data.csv', 'r'))
         for row in test_file:
             scrapper = scraping_class[row['product_category']](row['product_url'])
@@ -53,12 +58,14 @@ class ProductTestCase(TestCase):
             self.assertEqual(data.get('product_url'), row['product_url'])
 
     def test_mail_user(self):
+        """Test for mail_user function in utilities.py """
         test_file = csv.DictReader(open('product_check/test_data/test_data.csv', 'r'))
         for row in test_file:
             mail_user(row)
             self.assertEqual(row.get('product_url'), row['product_url'])
 
     def test_target_google_search_scrapper(self):
+        """Test for Google scrapping to get links on target"""
         instance = GoogleScraping()
         result1 = instance.searchQuery("Coffee","Target.com")
         result2 = instance.searchQueryShop("Coffee","Target.com")
@@ -67,7 +74,8 @@ class ProductTestCase(TestCase):
         # check if returning scraped links
         self.assertTrue(len(result1) or len(result2))
     
-    def test_walmart_google_search_scrapper(self):   
+    def test_walmart_google_search_scrapper(self):
+        """Test for Google scrapping to get links on walmart"""
         instance = GoogleScraping()
         result1 = instance.searchQuery("Coffee","Walmart.com")
         result2 = instance.searchQueryShop("Coffee","Walmart.com")
@@ -76,7 +84,8 @@ class ProductTestCase(TestCase):
         # check if returning scraped links
         self.assertTrue(len(result1) or len(result2))
     
-    def test_amazon_google_search_scrapper(self):   
+    def test_amazon_google_search_scrapper(self):
+        """Test for Google scrapping to get links on amazon"""
         instance = GoogleScraping()
         result1 = instance.searchQuery("Coffee","Amazon.com")
         result2 = instance.searchQueryShop("Coffee","Amazon.com")
@@ -85,7 +94,8 @@ class ProductTestCase(TestCase):
         # check if returning scraped links
         self.assertTrue(len(result1) or len(result2))
     
-    def test_costco_google_search_scrapper(self):   
+    def test_costco_google_search_scrapper(self):
+        """Test for Google scrapping to get links on costco"""
         instance = GoogleScraping()
         result1 = instance.searchQuery("Coffee","Costco.com")
         result2 = instance.searchQueryShop("Coffee","Costco.com")
