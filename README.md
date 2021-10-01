@@ -40,9 +40,10 @@ https://www.geeksforgeeks.org/creating-python-virtual-environment-windows-linux/
 ```
 pip install -r requirements.txt
 ```
-<br/> Start the server by running the following commands.
+<br/> Run the migrations and start the server by running the following commands.
 ```
 cd ProductCheck
+python manage.py migrate
 python manage.py runserver
 ```
 <br/> You could see the server running at http://127.0.0.1:8000/ .
