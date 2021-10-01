@@ -17,7 +17,7 @@ class GoogleScraping:
   """
   def __init__(self):
       self.results = {}
-      self.apiKey = "1931daa258fb4d04509d61efeea39f75f3e6f78f63d1e4041762cc6e8d6cce56"
+      self.apiKey = "7bf8eaa5968077500980ed43aa6aa73e4a706333427431228a1549bd64f5edee"
       self.Amazon = "Amazon"
       self.Target = "Target"
       self.Costco = "Costco"
