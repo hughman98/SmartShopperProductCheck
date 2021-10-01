@@ -103,3 +103,10 @@ class ProductTestCase(TestCase):
         result2 = instance.GoogleSearchShop(result2,"costco")
         # check if returning scraped links
         self.assertTrue(len(result1) or len(result2))
+
+    def test_callSearch(self):
+        instance = GoogleScraping()
+        result = instance.callSearch("Coffee")
+        self.assertTrue(len(result))
+
+
