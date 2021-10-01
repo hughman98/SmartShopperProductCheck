@@ -77,8 +77,8 @@ class ProductTestCase(TestCase):
     def test_walmart_google_search_scrapper(self):
         """Test for Google scrapping to get links on walmart"""
         instance = GoogleScraping()
-        result1 = instance.searchQuery("Coffee","Walmart")
-        result2 = instance.searchQueryShop("Coffee","Walmart")
+        result1 = instance.searchQuery("Mattress","Walmart")
+        result2 = instance.searchQueryShop("Mattress","Walmart")
         result1 = instance.GoogleSearch(result1,"Walmart")
         result2 = instance.GoogleSearchShop(result2,"Walmart")
         # check if returning scraped links
