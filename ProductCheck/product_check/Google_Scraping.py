@@ -6,7 +6,8 @@ Scraping multiple ecommerce sites to obtain poduct links using serpAPI
 from bs4 import element
 from requests import NullHandler
 from serpapi import GoogleSearch
-from .product_scraping import AmazonScrapper, WalmartScrapper, TargetScrapper, CostcoScrapper
+from product_scraping import AmazonScrapper, WalmartScrapper, TargetScrapper, CostcoScrapper
+from django.conf import settings
 
 class GoogleScraping:
   
@@ -16,7 +17,7 @@ class GoogleScraping:
   """
   def __init__(self):
       self.results = {}
-      self.apiKey = "7bf8eaa5968077500980ed43aa6aa73e4a706333427431228a1549bd64f5edee"
+      self.apiKey = "1931daa258fb4d04509d61efeea39f75f3e6f78f63d1e4041762cc6e8d6cce56"
       self.Amazon = "Amazon"
       self.Target = "Target"
       self.Costco = "Costco"
@@ -120,39 +121,58 @@ class GoogleScraping:
     resSearch = ref.searchQuery(key,self.Amazon)
     links = links+ref.GoogleSearchShop(resShop,self.Amazon)
     links = links+ref.GoogleSearch(resSearch,self.Amazon)
-    for i in range(0,len(links)):
-      amazonScrapper = AmazonScrapper(links[i])
-      data.append(amazonScrapper.fetch_product_details())
+    if len(links) > 5:
+      for i in range(0,5):
+        amazonScrapper = AmazonScrapper(links[i])
+        data.append(amazonScrapper.fetch_product_details())
+    else:
+      for i in range(0,len(links)):
+        amazonScrapper = AmazonScrapper(links[i])
+        data.append(amazonScrapper.fetch_product_details())
+   
     links = []
     resShop = ref.searchQueryShop(key,self.Target)
     resSearch = ref.searchQuery(key,self.Target)
     links = links+ref.GoogleSearchShop(resShop, self.Target)
     links = links+ref.GoogleSearch(resSearch, self.Target)
-  
-    for i in range(0,len(links)):
-      targetScrapper = TargetScrapper(links[i])
-      data.append(targetScrapper.fetch_product_details())
+    if len(links) > 5:
+      for i in range(0,5):
+        targetScrapper = TargetScrapper(links[i])
+        data.append(targetScrapper.fetch_product_details())
+    else:
+      for i in range(0,len(links)):
+        targetScrapper = TargetScrapper(links[i])
+        data.append(targetScrapper.fetch_product_details())
 
     links = []
     resShop = ref.searchQueryShop(key,self.Walmart)
     resSearch = ref.searchQuery(key,self.Walmart)
     links = links+ref.GoogleSearchShop(resShop, self.Walmart)
     links = links+ref.GoogleSearch(resSearch, self.Walmart)
-    for i in range(0,len(links)):
-      walmartScrapper = WalmartScrapper(links[i])
-      data.append(walmartScrapper.fetch_product_details())
+    if(len(links)>5):
+      for i in range(0,5):
+        walmartScrapper = WalmartScrapper(links[i])
+        data.append(walmartScrapper.fetch_product_details())
+    else:
+      for i in range(0,len(links)):
+        walmartScrapper = WalmartScrapper(links[i])
+        data.append(walmartScrapper.fetch_product_details())
 
     links = []
     resShop = ref.searchQueryShop(key,self.Costco)
     resSearch = ref.searchQuery(key,self.Costco)
     links = links+ref.GoogleSearchShop(resShop, self.Costco)
     links = links+ref.GoogleSearch(resSearch, self.Costco)
-    for i in range(0,len(links)):
-      costcoscrapper =  CostcoScrapper(links[i])
-      data.append(costcoscrapper.fetch_product_details())
+    if len(links)>5:
+      for i in range(0,5):
+        costcoscrapper =  CostcoScrapper(links[i])
+        data.append(costcoscrapper.fetch_product_details())
+    else:
+      for i in range(0,len(links)):
+        costcoscrapper =  CostcoScrapper(links[i])
+        data.append(costcoscrapper.fetch_product_details())
 
     return data
-
 
 
 
