@@ -6,7 +6,7 @@ Scraping multiple ecommerce sites to obtain poduct links using serpAPI
 from bs4 import element
 from requests import NullHandler
 from serpapi import GoogleSearch
-from product_scraping import AmazonScrapper, WalmartScrapper, TargetScrapper, CostcoScrapper
+from .product_scraping import AmazonScrapper, WalmartScrapper, TargetScrapper, CostcoScrapper
 from django.conf import settings
 
 class GoogleScraping:
