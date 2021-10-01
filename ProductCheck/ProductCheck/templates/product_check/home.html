@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<html lang="en">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Poppins' %}" rel="stylesheet" />
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="s01">
+        <form action="result_page" method="POST" enctype="multipart/form-data">
+            <fieldset>
+                <legend>SmartShopper</legend>
+            </fieldset>
+            <div class="inner-form">
+                <div class="input-field first-wrap">
+                    <input id="search" type="text" name="psearch" placeholder="Type in a product to find cheapest price" />
+                </div>
+                <div class="input-field third-wrap">
+                    <button class="btn-search" type="submit">Search</button>
+                </div>
+                <div class="input-field second-warp">
+                    {% csrf_token %}
+                    <input class="upload-btn" type="file" id="file1" name="csv_file" placeholder="upload CSV file">
+                    <button class="btn-upload" type="submit">Upload</button>
+                </div>
+            </div>   
+        </form>
+    </div>
+</body>
+<body>
+</body>
+</html>
+{% endblock %}
