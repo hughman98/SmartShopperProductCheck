@@ -67,39 +67,39 @@ class ProductTestCase(TestCase):
     def test_target_google_search_scrapper(self):
         """Test for Google scrapping to get links on target"""
         instance = GoogleScraping()
-        result1 = instance.searchQuery("Coffee","Target.com")
-        result2 = instance.searchQueryShop("Coffee","Target.com")
-        instance.GoogleSearch(result1,"Target.com")
-        instance.GoogleSearchShop(result2,"Target.com")
+        result1 = instance.searchQuery("Coffee","Target")
+        result2 = instance.searchQueryShop("Coffee","Target")
+        result1 = instance.GoogleSearch(result1,"Target")
+        result2 = instance.GoogleSearchShop(result2,"Target")
         # check if returning scraped links
         self.assertTrue(len(result1) or len(result2))
     
     def test_walmart_google_search_scrapper(self):
         """Test for Google scrapping to get links on walmart"""
         instance = GoogleScraping()
-        result1 = instance.searchQuery("Coffee","Walmart.com")
-        result2 = instance.searchQueryShop("Coffee","Walmart.com")
-        instance.GoogleSearch(result1,"Walmart.com")
-        instance.GoogleSearchShop(result2,"Walmart.com")
+        result1 = instance.searchQuery("Coffee","Walmart")
+        result2 = instance.searchQueryShop("Coffee","Walmart")
+        result1 = instance.GoogleSearch(result1,"Walmart")
+        result2 = instance.GoogleSearchShop(result2,"Walmart")
         # check if returning scraped links
         self.assertTrue(len(result1) or len(result2))
     
     def test_amazon_google_search_scrapper(self):
         """Test for Google scrapping to get links on amazon"""
         instance = GoogleScraping()
-        result1 = instance.searchQuery("Coffee","Amazon.com")
-        result2 = instance.searchQueryShop("Coffee","Amazon.com")
-        instance.GoogleSearch(result1,"Amazon.com")
-        instance.GoogleSearchShop(result2,"Amazon.com")
+        result1 = instance.searchQuery("Coffee","Amazon")
+        result2 = instance.searchQueryShop("Coffee","Amazon")
+        result1 = instance.GoogleSearch(result1,"Amazon")
+        result2 = instance.GoogleSearchShop(result2,"Amazon")
         # check if returning scraped links
         self.assertTrue(len(result1) or len(result2))
     
     def test_costco_google_search_scrapper(self):
         """Test for Google scrapping to get links on costco"""
         instance = GoogleScraping()
-        result1 = instance.searchQuery("Coffee","Costco.com")
-        result2 = instance.searchQueryShop("Coffee","Costco.com")
-        instance.GoogleSearch(result1,"Costco.com")
-        instance.GoogleSearchShop(result2,"Costco.com")
+        result1 = instance.searchQuery("Coffee","costco")
+        result2 = instance.searchQueryShop("Coffee","costco")
+        result1 = instance.GoogleSearch(result1,"costco")
+        result2 = instance.GoogleSearchShop(result2,"costco")
         # check if returning scraped links
         self.assertTrue(len(result1) or len(result2))
