@@ -4,7 +4,7 @@ from .models import Product
 from .product_scraping import AmazonScrapper, WalmartScrapper, TargetScrapper, CostcoScrapper
 from .views import scraping_class
 from .utilities import mail_user
-from .Google_Scraping import GoogleScraping,GoogleSearch
+from .Google_Scraping import GoogleScraping, GoogleSearch
 
 
 class ProductTestCase(TestCase):
